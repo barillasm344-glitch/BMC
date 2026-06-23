@@ -1,0 +1,69 @@
+# ============================================
+# .gitignore para BMC VAPING
+# ============================================
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# Archivos de dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de construcción
+dist/
+build/
+*.min.js
+*.min.css
+
+# Archivos de logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de caché
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# Archivos de pruebas
+coverage/
+.nyc_output/
+
+# Archivos de base de datos
+*.db
+*.sqlite
+
+# Archivos de imágenes generadas
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+!assets/images/placeholder.png
+
+# Archivos de compresión
+*.zip
+*.rar
+*.tar.gz
+
+# Archivos temporales
+temp/
+tmp/

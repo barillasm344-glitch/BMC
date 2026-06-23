@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMC VAPING — Tienda de Vapes y Líquidos</title>
+    <meta name="description" content="BMC VAPING - Venta de dispositivos, pods y líquidos para vapeo. Producto exclusivo para mayores de edad.">
+    <meta name="keywords" content="vape, vapes, líquidos, desechables, pods, mods, Guatemala">
+    <meta name="author" content="BMC VAPING">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bmcvaping.com/" />
+    <meta property="og:title" content="BMC VAPING — Tienda de Vapes y Líquidos" />
+    <meta property="og:description" content="Vapeo de calidad, sabor que se siente." />
+    <meta property="og:image" content="https://bmcvaping.com/assets/images/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bmcvaping.com/" />
+    <meta property="twitter:title" content="BMC VAPING — Tienda de Vapes y Líquidos" />
+    <meta property="twitter:description" content="Vapeo de calidad, sabor que se siente." />
+    <meta property="twitter:image" content="https://bmcvaping.com/assets/images/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- AGE GATE - VERIFICACIÓN DE EDAD (18+)       -->
+    <!-- ============================================ -->
+    <div id="ageGate" class="age-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+        <div class="age-gate-box" id="ageGateBox">
+            <div class="age-gate-logo">
+                <img src="assets/images/logo.png" alt="BMC Vaping" class="logo-mark">
+            </div>
+            <h2 id="age-gate-title">Verificación de Edad</h2>
+            <p>Este sitio contiene productos de vapeo exclusivos para mayores de 18 años. Confirma tu edad para continuar.</p>
+            <div class="age-gate-actions">
+                <button class="btn-primary" id="ageConfirmBtn">
+                    <i class="fas fa-check-circle"></i> Soy mayor de 18
+                </button>
+                <button class="btn-secondary" id="ageDenyBtn">
+                    <i class="fas fa-times-circle"></i> Soy menor
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- HEADER / NAVEGACIÓN                         -->
+    <!-- ============================================ -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="brand">
+                <a href="#inicio" aria-label="BMC VAPING - Inicio">
+                    <img src="assets/images/logo.png" alt="BMC Vaping" class="logo-img">
+                    <div class="brand-text">
+                        <span class="brand-name">BMC <span>VAPING</span></span>
+                        <small>Vapeo de calidad</small>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Barra de búsqueda -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar productos..." aria-label="Buscar productos">
+                <button id="searchBtn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Acciones del header -->
+            <div class="header-actions">
+                <button class="cart-toggle" id="cartToggle" aria-label="Abrir carrito" aria-expanded="false">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge empty" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navegación principal -->
+        <nav class="main-nav" id="mainNav" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" data-target="#inicio" class="active">Inicio</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#productos" data-target="#productos" class="dropdown-toggle" id="productsToggle" aria-haspopup="true" aria-expanded="false">
+                            Productos <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" id="productsSubmenu" role="menu">
+                            <li><a href="#productos" data-filter="all" role="menuitem"><i class="fas fa-th-large"></i> Todos</a></li>
+                            <li><a href="#productos" data-filter="desechable" role="menuitem"><i class="fas fa-battery-full"></i> Desechables</a></li>
+                            <li><a href="#productos" data-filter="recargable" role="menuitem"><i class="fas fa-bolt"></i> Pods Recargables</a></li>
+                            <li><a href="#productos" data-filter="liquido" role="menuitem"><i class="fas fa-flask"></i> Líquidos</a></li>
+                            <li><a href="#productos" data-filter="mod" role="menuitem"><i class="fas fa-cog"></i> Mods</a></li>
+                            <li><a href="#productos" data-filter="accesorio" role="menuitem"><i class="fas fa-tools"></i> Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#nosotros" data-target="#nosotros">Nosotros</a></li>
+                    <li><a href="#faq" data-target="#faq">FAQ</a></li>
+                    <li><a href="#contacto" data-target="#contacto">Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#productos" class="btn-primary btn-sm">Tienda</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- OVERLAY PARA MENÚ MÓVIL                    -->
+    <!-- ============================================ -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION                               -->
+    <!-- ============================================ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">🔥 Nuevos productos</span>
+                <h1 id="hero-title">Vapeo de <span>calidad</span>,<br>sabor que se <span>siente</span></h1>
+                <p class="hero-description">Descubre nuestra selección premium de dispositivos, pods y líquidos. Productos originales, atención personalizada y entrega segura.</p>
+                <div class="hero-actions">
+                    <a href="#productos" class="btn-primary btn-lg">
+                        <i class="fas fa-store"></i> Ver catálogo
+                    </a>
+                    <a href="#contacto" class="btn-secondary btn-lg">
+                        <i class="fas fa-comment"></i> Contáctanos
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Productos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Marcas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Originales</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <span>BMC VAPING</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CATEGORÍAS DESTACADAS                      -->
+    <!-- ============================================ -->
+    <section class="categories-section" aria-labelledby="categories-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="categories-title">Categorías <span>Destacadas</span></h2>
+                <p>Encuentra el producto perfecto para ti</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="desechable">
+                    <div class="category-icon"><i class="fas fa-battery-full"></i></div>
+                    <h3>Desechables</h3>
+                    <p>Prácticos y listos para usar</p>
+                    <span class="category-count">12 productos</span>
+                </div>
+                <div class="category-card" data-category="recargable">
+                    <div class="category-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Pods Recargables</h3>
+                    <p>Económicos y duraderos</p>
+                    <span class="category-count">8 productos</span>
+                </div>
+                <div class="category-card" data-category="liquido">
+                    <div class="category-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Líquidos</h3>
+                    <p>Más de 20 sabores</p>
+                    <span class="category-count">15 productos</span>
+                </div>
+                <div class="category-card" data-category="mod">
+                    <div class="category-icon"><i class="fas fa-cog"></i></div>
+                    <h3>Mods</h3>
+                    <p>Potencia y personalización</p>
+                    <span class="category-count">6 productos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PRODUCTOS / CATÁLOGO                       -->
+    <!-- ============================================ -->
+    <section class="products-section" id="productos" aria-labelledby="products-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="products-title">Nuestro <span>Catálogo</span></h2>
+                <p>Productos premium para una experiencia única</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="products-filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="desechable">Desechables</button>
+                    <button class="filter-btn" data-filter="recargable">Pods</button>
+                    <button class="filter-btn" data-filter="liquido">Líquidos</button>
+                    <button class="filter-btn" data-filter="mod">Mods</button>
+                    <button class="filter-btn" data-filter="accesorio">Accesorios</button>
+                </div>
+                <div class="filter-sort">
+                    <select id="sortSelect" aria-label="Ordenar productos">
+                        <option value="featured">Destacados</option>
+                        <option value="price-low">Precio: menor a mayor</option>
+                        <option value="price-high">Precio: mayor a menor</option>
+                        <option value="name">Nombre: A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid de productos -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se renderizan con JavaScript -->
+            </div>
+
+            <!-- Mensaje cuando no hay productos -->
+            <div class="no-products" id="noProductsMsg" style="display:none;">
+                <i class="fas fa-box-open"></i>
+                <p>No hay productos en esta categoría</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SOBRE NOSOTROS                             -->
+    <!-- ============================================ -->
+    <section class="about-section" id="nosotros" aria-labelledby="about-title">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="about-badge">Sobre Nosotros</span>
+                    <h2 id="about-title">Tu tienda de <span>confianza</span> en vapeo</h2>
+                    <p>BMC VAPING nace con la misión de ofrecer productos de vapeo de calidad, con variedad de sabores y dispositivos, garantizando un servicio responsable, transparente y siempre dirigido a un público adulto.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Productos Originales</h4>
+                                <p>100% verificados y de las mejores marcas</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>Atención Personalizada</h4>
+                                <p>Asesoría según tu experiencia</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <h4>Envío Seguro</h4>
+                                <p>Entregas coordinadas con cuidado</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-check"></i>
+                            <div>
+                                <h4>Venta Responsable</h4>
+                                <p>Exclusivo para mayores de 18 años</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-store-alt"></i>
+                        <span>BMC VAPING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIOS                                -->
+    <!-- ============================================ -->
+    <section class="testimonials-section" aria-labelledby="testimonials-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="testimonials-title">Lo que dicen <span>nuestros clientes</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Excelente atención, los productos son de calidad y el envío fue rápido. ¡Recomendados!"</p>
+                    <div class="testimonial-author">
+                        <strong>Carlos M.</strong>
+                        <span>Cliente frecuente</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"La variedad de sabores es increíble. Siempre encuentro lo que busco y me asesoran bien."</p>
+                    <div class="testimonial-author">
+                        <strong>Ana G.</strong>
+                        <span>Compradora regular</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Primera vez comprando y quedé encantada. Productos originales y atención de primera."</p>
+                    <div class="testimonial-author">
+                        <strong>Laura R.</strong>
+                        <span>Nueva cliente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ (PREGUNTAS FRECUENTES)                 -->
+    <!-- ============================================ -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="faq-title">Preguntas <span>Frecuentes</span></h2>
+                <p>Resolvemos tus dudas</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                        ¿Cuál es la edad mínima para comprar?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
+                        <p>Nuestros productos son exclusivamente para personas mayores de 18 años. Solicitamos verificación de edad antes de procesar cualquier pedido.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                        ¿Qué tipos de productos manejan?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+                        <p>Contamos con dispositivos desechables, pods recargables, mods, líquidos y sales de nicotina, además de accesorios como coils, baterías y cargadores.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                        ¿Los productos tienen garantía?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+                        <p>Los dispositivos recargables y mods cuentan con garantía limitada por defectos de fábrica. Los desechables y líquidos no aplican a garantía una vez abiertos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                        ¿Hacen envíos?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+                        <p>Sí, coordinamos entregas dentro del área de servicio. Escríbenos por WhatsApp o correo para confirmar disponibilidad y costo de envío a tu zona.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                        ¿Cómo hago un pedido?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
+                        <p>Puedes contactarnos por WhatsApp, correo electrónico o el formulario de la sección de contacto. Te confirmaremos disponibilidad, precio y forma de entrega.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACTO                                   -->
+    <!-- ============================================ -->
+    <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="contact-badge">Contáctanos</span>
+                    <h2 id="contact-title">¿Tienes <span>alguna duda</span>?</h2>
+                    <p>Escríbenos y te ayudaremos a encontrar el producto perfecto para ti.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:contacto.bmcvaping@gmail.com">contacto.bmcvaping@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono / WhatsApp</strong>
+                                <a href="tel:59391086">5939 1086</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <span>Guatemala</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="c_name">Nombre completo *</label>
+                            <input type="text" id="c_name" name="name" placeholder="Ingresa tu nombre" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="c_email">Correo electrónico *</label>
+                                <input type="email" id="c_email" name="email" placeholder="correo@ejemplo.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c_phone">Teléfono *</label>
+                                <input type="tel" id="c_phone" name="phone" placeholder="Número de contacto" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="c_message">Mensaje *</label>
+                            <textarea id="c_message" name="message" rows="4" placeholder="Cuéntanos qué producto buscas..." required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary btn-lg" id="sendContactBtn">
+                                <span id="btnText"><i class="fas fa-paper-plane"></i> Enviar mensaje</span>
+                                <span id="btnLoading" class="loading" style="display:none;"></span>
+                            </button>
+                            <button type="reset" class="btn-secondary" id="resetContactBtn">
+                                <i class="fas fa-undo"></i> Limpiar
+                            </button>
+                        </div>
+                        <div id="contactMsg" class="form-message" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                     -->
+    <!-- ============================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/images/logo.png" alt="BMC Vaping" class="footer-logo">
+                    <p>BMC VAPING es tu tienda de confianza para productos de vapeo de calidad. Venta exclusiva para mayores de 18 años.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información legal</h4>
+                    <ul>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Política de envíos</a></li>
+                        <li><a href="#">Aviso de edad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Suscríbete</h4>
+                    <p>Recibe promociones y novedades</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BMC VAPING. Todos los derechos reservados.</p>
+                <p class="disclaimer">⚠️ El consumo de nicotina puede ser perjudicial para la salud. Venta prohibida a menores de edad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- CARRITO - SIDEBAR                         -->
+    <!-- ============================================ -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar" role="dialog" aria-label="Carrito de compras">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Carrito</h3>
+            <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="#productos" class="btn-primary btn-sm">Explorar productos</a>
+            </div>
+            <div class="cart-items" id="cartItems" style="display:none;">
+                <!-- Items renderizados por JS -->
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Q0.00</span>
+            </div>
+            <button class="btn-primary btn-lg" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> Ir a pagar
+            </button>
+        </div>
+    </aside>
+
+    <!-- ============================================ -->
+    <!-- SCRIPTS                                    -->
+    <!-- ============================================ -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
