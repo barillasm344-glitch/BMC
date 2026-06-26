@@ -1,18 +1,20 @@
 // ============================================
-// DATOS DE PRODUCTOS - BMC VAPING
+// 📦 DATOS DE PRODUCTOS - BMC VAPING
+// ============================================
+// ¡SOLO EDITA ESTE ARCHIVO PARA ACTUALIZAR PRODUCTOS!
 // ============================================
 
 const productsData = [
     {
         id: 1,
-        name: "VAPE LOST MARY BLACK MINT ",
+        name: "VAPE LOST MARY BLACK MINT",
         category: "desechable",
         brand: "LOST MARY",
         price: 250,
         oldPrice: 280,
         rating: 4.8,
         reviews: 23,
-        image: "Inventario/lostmary.jpg",
+        image: "https://lostmarydirect.com/products/black-mint-lost-mary-mo5000",
         description: "Vape desechable con 35,000 PUFFS. Batería de larga duración y sabores intensos.",
         stock: 15,
         isNew: true,
@@ -21,14 +23,14 @@ const productsData = [
     },
     {
         id: 2,
-        name: "Maskking High Pro Plus ",
+        name: "Maskking High Pro Plus",
         category: "recargable",
         brand: "Maskking",
         price: 180,
         oldPrice: null,
         rating: 4.6,
         reviews: 18,
-        image: "Inventario/maskking.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E⚡%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3EMaskking%3C/text%3E%3C/svg%3E",
         description: "Vape desechable con 1800 PUFFS. Batería de larga duración y sabores intensos.",
         stock: 20,
         isNew: true,
@@ -44,7 +46,7 @@ const productsData = [
         oldPrice: 110,
         rating: 4.7,
         reviews: 31,
-        image: "assets/images/products/liquid-mix.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E🧪%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3EBMC Liquid%3C/text%3E%3C/svg%3E",
         description: "Sales de nicotina 20mg/35mg. Sabores intensos y duraderos.",
         stock: 40,
         isNew: false,
@@ -60,7 +62,7 @@ const productsData = [
         oldPrice: 500,
         rating: 4.9,
         reviews: 12,
-        image: "assets/images/products/box-mod.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E🔋%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3EBox Mod 80W%3C/text%3E%3C/svg%3E",
         description: "Potencia ajustable hasta 80W, pantalla digital, compatible con resistencias 0.2-1.0 ohm.",
         stock: 8,
         isNew: false,
@@ -76,7 +78,7 @@ const productsData = [
         oldPrice: null,
         rating: 4.5,
         reviews: 9,
-        image: "assets/images/products/coils.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E🔄%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3ECoils%3C/text%3E%3C/svg%3E",
         description: "Resistencias de repuesto compatibles con la mayoría de pods BMC.",
         stock: 25,
         isNew: false,
@@ -92,7 +94,7 @@ const productsData = [
         oldPrice: 420,
         rating: 4.8,
         reviews: 15,
-        image: "assets/images/products/combo-inicial.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E🎁%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3ECombo Inicial%3C/text%3E%3C/svg%3E",
         description: "Pod recargable + 2 líquidos a elección + cargador. Ideal para empezar.",
         stock: 10,
         isNew: true,
@@ -101,23 +103,25 @@ const productsData = [
     },
     {
         id: 7,
-        name: "Waka de 30k ",
+        name: "Waka de 30k",
         category: "desechable",
         brand: "Waka",
         price: 150,
         oldPrice: 180,
         rating: 4.8,
         reviews: 23,
-        image: "assets/images/products/cloud-6000.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%231a1a2e'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' font-size='80' font-family='Arial' fill='%23f5c842'%3E🌪️%3C/text%3E%3Ctext x='50%25' y='65%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%23b0b0b3'%3EWaka%3C/text%3E%3C/svg%3E",
         description: "Vape desechable con 30,000 puffs. Batería de larga duración y sabores intensos.",
         stock: 15,
         isNew: true,
         isBestSeller: true,
-        flavors: ["Menta", "Frutos Rojos","Sandía"]
+        flavors: ["Menta", "Frutos Rojos", "Sandía"]
     }
 ];
 
-// Exportar para uso en otros archivos
+// ============================================
+// 📌 NO MODIFIQUES ESTA LÍNEA
+// ============================================
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = productsData;
 }
